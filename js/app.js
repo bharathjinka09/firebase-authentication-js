@@ -121,7 +121,7 @@ function signUp(){
             swal({
                 type: 'error',
                 title: 'Error',
-                text: "Error",
+                text: "Please try again",
             })
         });
     }
@@ -176,8 +176,8 @@ function signIn(){
     }else{
         firebase.auth().signInWithEmailAndPassword(userSIEmail, userSIPassword).then((success) => {
             swal({
-                type: 'successfull',
-                title: 'Succesfully signed in', 
+                type: 'successful',
+                title: 'Succesfully signed in !', 
             }).then((value) => {
                 setTimeout(function(){
                     window.location.replace("./pages/profile.html");
@@ -189,8 +189,8 @@ function signIn(){
             var errorMessage = error.message;
             swal({
                 type: 'error',
-                title: 'Error',
-                text: "Error",
+                title: 'Incorrect Credentials',
+                text: "Please try again",
             })
         });
     }
@@ -273,9 +273,9 @@ function saveProfile(){
         }
         firebaseRef.child(uid).set(userData);
         swal({
-            type: 'successfull',
-            title: 'Update successfull',
-            text: 'Profile updated.', 
+            type: 'successful',
+            title: 'Updated successfully',
+            text: 'Profile updated!', 
         }).then((value) => {
             setTimeout(function(){
                 document.getElementById("profileSection").style.display = "block";
